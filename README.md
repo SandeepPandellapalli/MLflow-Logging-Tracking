@@ -1,10 +1,10 @@
 # MLflow-Logging-Tracking
 This repository demonstrates using MLflow for managing and tracking ML experiments. It includes setting up and executing a Logistic Regression model, with detailed tracking of parameters and metrics. Ideal for those interested in MLflow for enhancing model management and reproducibility.
 
-## Problem Statement
+### Problem Statement
 In the realm of machine learning, managing and tracking experiments efficiently remains a significant challenge, particularly when dealing with multiple model iterations and configurations. This project addresses the need for a systematic approach to log, compare, and analyze machine learning experiments, using MLflow. The objective is to demonstrate the setup and execution of a logistic regression model, leveraging MLflow's capabilities to provide comprehensive tracking of model parameters, performance metrics, and experiment artifacts, thereby enhancing reproducibility and streamlining the management of machine learning workflows.
 
-## Environment Setup
+### Environment Setup
 
 Create a virtual environment and activate it:
 
@@ -13,7 +13,7 @@ conda create -p venv python=3.10
 conda activate venv/
 ```
 
-## Install Dependencies
+### Install Dependencies
 
 Install the required Python libraries specified in `requirements.txt` (also referred to as `re.txt`):
 
@@ -21,7 +21,7 @@ Install the required Python libraries specified in `requirements.txt` (also refe
 pip install -r requirements.txt
 ```
 
-##  Importing Libraries
+###  Importing Libraries
 
 ```bash
 import logging
@@ -45,5 +45,31 @@ import argparse
 - sklearn.model_selection.train_test_split: Part of the scikit-learn library, this function is used to split datasets into random train and test subsets, which is helpful for evaluating the performance of machine learning models.
 - sklearn.linear_model.LogisticRegression: Also from the scikit-learn library, this module is used to perform logistic regression, a statistical method for analyzing a dataset in which there are one or more independent variables that determine an outcome.
 - sklearn.metrics: This module includes score functions, performance metrics, and pairwise metrics and distance computations. It is used to assess the accuracy of models.
+
+### Data Loading and Preparation
+This section details how the Iris dataset is loaded, how features and labels are prepared, and how the data is subsequently split into training and testing sets to ensure reproducibility and effective model evaluation.
+
+The Iris dataset is loaded from a CSV file using the Pandas library. The dataset consists of 150 records of iris flowers, each described by four features (sepal length, sepal width, petal length, and petal width) and categorized into one of three varieties.
+
+```bash
+import pandas as pd
+df = pd.read_csv('/path/to/iris.csv')
+```
+We separate the dataset into features (X) and labels (Y). The features include the measurements of the flowers, while the labels denote the variety of each iris.
+
+```bash
+X = df.iloc[:,0:4]  # Features: sepal length, sepal width, petal length, petal width
+Y = df['variety']   # Labels: Iris variety
+```
+
+To evaluate the model's performance accurately on unseen data, we split the dataset into training and testing sets using scikit-learn's train_test_split function. We specify a test size of 25% and set the random_state to 0 to ensure the split is consistent across different runs.
+
+```bash
+from sklearn.model_selection import train_test_split
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=0)
+```
+
+
+
 
 

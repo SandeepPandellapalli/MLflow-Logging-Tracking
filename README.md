@@ -95,6 +95,31 @@ Once the experiment is set, you start an MLflow run using mlflow.start_run(). Th
 mlflow.start_run()
 ```
 
+### Model Training
+
+In this section, we detail the configuration and training of the Logistic Regression model for our Iris dataset and describe how MLflow is used to log the model parameters and metrics to facilitate a thorough examination and reproducibility of the experiment results.
+
+Configuring the Logistic Regression Model
+
+The Logistic Regression model is configured with specific hyperparameters that control its behavior and performance. We use scikit-learn's LogisticRegression class to create the model. The parameters include penalty for regularization type, C as the inverse of regularization strength, random_state to ensure reproducibility, solver for the optimization algorithm, and max_iter for the maximum number of iterations.
+
+```bash
+from sklearn.linear_model import LogisticRegression
+log = LogisticRegression(penalty=penalty, C=C, random_state=42, solver=solver, max_iter=max_iter)
+```
+Training the Model
+Once the model is configured, it is trained on the training dataset. This involves fitting the model to the data using fit() method, which learns the model parameters to best predict the class labels.
+
+```bash
+log.fit(X_train, Y_train)
+```
+
+After the model is trained, it is used to make predictions on the test dataset. We predict the class labels for the test set using the predict() method of the model.
+
+```bash
+prediction = log.predict(X_test)
+```
+
 
 
 

@@ -68,6 +68,30 @@ To evaluate the model's performance accurately on unseen data, we split the data
 from sklearn.model_selection import train_test_split
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=0)
 ```
+### MLflow Configuration
+
+In this project, MLflow is utilized to streamline the management and tracking of machine learning experiments. This section details the configuration of MLflow for centralized tracking of model parameters, metrics, and artifacts, ensuring robust experiment reproducibility and comparability.
+
+Setting the Tracking URI
+
+MLflow uses a tracking URI to store all the experiment metrics, parameters, and outputs. This URI points to the directory where all MLflow tracking information is saved. Setting this URI allows all project runs to be consolidated in a single location, simplifying the process of performance evaluation and version control.
+
+```bash
+import mlflow
+mlflow.set_tracking_uri("file:///path/to/mlruns")
+```
+Starting an MLflow Experiment
+
+Before any run can be tracked, an experiment must be defined or set in MLflow. By setting an experiment, MLflow organizes runs under named experiments, which is very useful for categorizing different phases or types of model training. Here, we create or set an experiment named Iris_Exp_1.
+
+```bash
+exp = mlflow.set_experiment(experiment_name='Iris_Exp_1')
+```
+Once the experiment is set, you start an MLflow run using mlflow.start_run(). This function initiates the tracking of parameters, metrics, and artifacts for that specific run. Each run is logged with a unique identifier, allowing for detailed analysis and comparison of different runs within the same experiment.
+
+```bash
+mlflow.start_run()
+```
 
 
 

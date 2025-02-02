@@ -170,18 +170,44 @@ mlflow.log_metrics(evaluation_metrics)
 
 ```
 
+### Logging Model, Artifacts, and Metrics, and Ending the Run
 
+After evaluating the model with various performance metrics, it's important to log the model, any related artifacts, the calculated metrics, and properly conclude the MLflow run. This ensures all components of the experiment are captured and tracked.
 
+The trained Logistic Regression model is logged in MLflow. This captures the model along with its configuration and allows for later deployment or further analysis:
 
+```bash
+mlflow.sklearn.log_model(log, "Logistic Regression")
+```
 
+If there are additional files such as plots, data subsets, or configuration files stored in the data/ directory, they can be logged as artifacts. This step is crucial for preserving outputs that could be necessary for report generation or audit trails:
 
+```bash
+mlflow.log_artifacts('data/')
+```
 
+The performance metrics calculated earlier are logged to MLflow. This creates a permanent record of how well the model performed according to these metrics:
 
+```bash
+mlflow.log_metrics(evaluation_metrics)
+```
 
+Once all relevant data has been logged, end the MLflow run to close out this experiment session:
 
+```bash
+mlflow.end_run()
+```
 
+Output the Results
 
+Finally, output the performance metrics to the console, providing immediate feedback on model performance:
 
+```bash
+print('The accuracy of the Logistic Regression is ', accuracy)
+print('The precision of the Logistic Regression is ', precision)
+print('The recall of the Logistic Regression is ', recall)
+print('The f1_score of the Logistic Regression is ', f1_score)
+```
 
 
 

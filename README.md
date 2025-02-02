@@ -37,16 +37,16 @@ from pathlib import Path
 import os
 import argparse
 ```
-- **mlflow:** An open-source platform for managing the end-to-end machine learning lifecycle. It includes tracking experiments to record and compare parameters and results.
-- **mlflow.sklearn:** This module is part of MLflow and is specifically designed to provide utilities to log, load, and serve scikit-learn models using MLflow.
-- **pathlib.Path:** This class in the pathlib module offers classes representing filesystem paths with semantics appropriate for different operating systems. It provides methods to perform tasks related to file paths (like joining paths, reading files, etc.).
-- **os:** Provides a way of using operating system-dependent functionality like reading or writing to a file, manipulating paths, etc.
-- **argparse:** This module makes it easy to write user-friendly command-line interfaces. The program defines what arguments it requires, and argparse will figure out how to parse those out of sys.argv.
-- **logging:** Provides a flexible framework for emitting log messages from Python programs. It is used to track events that happen when some software runs.
-- **pandas:** An open-source library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language. It is especially good at handling tabular data.
-- **sklearn.model_selection.train_test_split:** Part of the scikit-learn library, this function is used to split datasets into random train and test subsets, which is helpful for evaluating the performance of machine learning models.
-- **sklearn.linear_model.LogisticRegression:** Also from the scikit-learn library, this module is used to perform logistic regression, a statistical method for analyzing a dataset in which there are one or more independent variables that determine an outcome.
-- **sklearn.metrics:** This module includes score functions, performance metrics, and pairwise metrics and distance computations. It is used to assess the accuracy of models.
+- <ins>**mlflow:</ins>** An open-source platform for managing the end-to-end machine learning lifecycle. It includes tracking experiments to record and compare parameters and results.
+- <ins>**mlflow.sklearn:**</ins> This module is part of MLflow and is specifically designed to provide utilities to log, load, and serve scikit-learn models using MLflow.
+- <ins>**pathlib.Path:**</ins> This class in the pathlib module offers classes representing filesystem paths with semantics appropriate for different operating systems. It provides methods to perform tasks related to file paths (like joining paths, reading files, etc.).
+- <ins>**os:**</ins> Provides a way of using operating system-dependent functionality like reading or writing to a file, manipulating paths, etc.
+- <ins>**argparse:**</ins> This module makes it easy to write user-friendly command-line interfaces. The program defines what arguments it requires, and argparse will figure out how to parse those out of sys.argv.
+- <ins>**logging:**</ins> Provides a flexible framework for emitting log messages from Python programs. It is used to track events that happen when some software runs.
+- <ins>**pandas:**</ins> An open-source library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language. It is especially good at handling tabular data.
+- <ins>**sklearn.model_selection.train_test_split:**</ins> Part of the scikit-learn library, this function is used to split datasets into random train and test subsets, which is helpful for evaluating the performance of machine learning models.
+- <ins>**sklearn.linear_model.LogisticRegression:**</ins> Also from the scikit-learn library, this module is used to perform logistic regression, a statistical method for analyzing a dataset in which there are one or more independent variables that determine an outcome.
+- <ins>**sklearn.metrics:**</ins> This module includes score functions, performance metrics, and pairwise metrics and distance computations. It is used to assess the accuracy of models.
 
 ### Data Loading and Preparation
 This section details how the Iris dataset is loaded, how features and labels are prepared, and how the data is subsequently split into training and testing sets to ensure reproducibility and effective model evaluation.

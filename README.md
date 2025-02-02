@@ -120,6 +120,74 @@ After the model is trained, it is used to make predictions on the test dataset. 
 prediction = log.predict(X_test)
 ```
 
+### Logging Hyperparameters and Model
+
+To maintain comprehensive records and ensure reproducibility of the model training process, it's crucial to log the model's hyperparameters and the model itself using MLflow. This section will detail how to do so effectively.
+
+The hyperparameters for the Logistic Regression model are defined in a dictionary. This structured approach not only organizes the parameters but also facilitates their logging in MLflow. By logging these parameters, we can track the configuration of each model run, making it easy to replicate results or iterate on the model configuration.
+
+```bash
+params = {
+    'C': C,
+    'solver': solver,
+    'penalty': penalty,
+    'max_iter': max_iter,
+}
+mlflow.log_params(params)
+```
+
+After training the model, it is essential to log it to MLflow. This allows the model, along with its parameters, to be saved in an MLflow tracking environment. Logging the model enables us to version the model, compare it against other models, and potentially deploy it for production or further testing.
+
+```bash
+import mlflow.sklearn
+mlflow.sklearn.log_model(log, "Logistic Regression")
+```
+
+### Calculating and Logging Performance Metrics
+
+After training the Logistic Regression model and making predictions, it is essential to evaluate the model's performance using various metrics. This section describes how to calculate these metrics and log them using MLflow, which aids in assessing the model's effectiveness.
+
+Calculating Metrics
+
+We calculate several key performance metrics, including accuracy, precision, recall, and the F1 score. These metrics provide a comprehensive view of the model's performance across various aspects:
+
+```bash
+from sklearn import metrics
+accuracy = metrics.accuracy_score(Y_test, prediction)
+precision = metrics.precision_score(Y_test, prediction, average='macro')
+recall = metrics.recall_score(Y_test, prediction, average='macro')
+f1_score = metrics.f1_score(Y_test, prediction, average='macro')
+
+evaluation_metrics = {
+    'accuracy': accuracy,
+    'precision': precision,
+    'recall': recall,
+    'f1_score': f1_score,
+    # 'auc': auc, # Uncomment if ROC AUC score is logged
+}
+
+mlflow.log_metrics(evaluation_metrics)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

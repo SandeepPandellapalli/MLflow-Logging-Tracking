@@ -206,6 +206,7 @@ Once all relevant data has been logged, end the MLflow run to close out this exp
 ```bash
 mlflow.end_run()
 ```
+![Chatbot Features](Compare_Runs-min.jpg)
 
 Output the Results
 
